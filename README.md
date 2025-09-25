@@ -1,1 +1,171 @@
-# DevDojo フォーク用プロジェクト
+# DevDojo Practice - Docusaurusドキュメントサイトテンプレート
+
+このプロジェクトは、Docusaurusを使用したドキュメントサイトのテンプレートです。
+GitHubPagesでの公開に対応しており、簡単にカスタマイズできます。
+
+## 🚀 クイックスタート
+
+### 1. プロジェクトのセットアップ
+```bash
+cd devdojo-practice
+npm install
+npm start
+```
+
+### 2. 開発サーバー起動
+ローカルで確認： http://localhost:3000
+
+## ⚙️ カスタマイズ方法
+
+### 必須変更項目
+
+#### 📝 1. サイト基本情報の変更
+ファイル：`devdojo-practice/docusaurus.config.ts`
+
+```typescript
+const config: Config = {
+  title: 'DevDojo Practice',           // ← あなたのサイト名に変更
+  tagline: '開発の練習と学習を記録するサイト', // ← サイトの説明に変更
+  // ...
+}
+```
+
+#### 🌐 2. GitHubPages用URL設定
+ファイル：`devdojo-practice/docusaurus.config.ts`
+
+```typescript
+// GitHubPages用設定
+url: 'https://ユーザー名.github.io',     // ← あなたのGitHubユーザー名
+baseUrl: '/リポジトリ名/',               // ← あなたのリポジトリ名
+organizationName: 'ユーザー名',          // ← あなたのGitHubユーザー名
+projectName: 'リポジトリ名',             // ← あなたのリポジトリ名
+```
+
+**設定例：**
+```typescript
+url: 'https://yamada-taro.github.io',
+baseUrl: '/my-docs/',
+organizationName: 'yamada-taro',
+projectName: 'my-docs',
+```
+
+#### 🔗 3. GitHubリンクの変更
+ファイル：`devdojo-practice/docusaurus.config.ts`
+
+```typescript
+// ナビゲーションバーのGitHubリンク
+{
+  href: 'https://github.com/ユーザー名/リポジトリ名', // ← 実際のリポジトリURL
+  label: 'GitHub',
+  position: 'right',
+},
+
+// フッターのGitHubリンク
+{
+  label: 'GitHub',
+  href: 'https://github.com/ユーザー名/リポジトリ名', // ← 実際のリポジトリURL
+},
+```
+
+#### ✏️ 4. 編集リンクの変更
+ファイル：`devdojo-practice/docusaurus.config.ts`
+
+```typescript
+// ドキュメントの編集リンク
+editUrl: 'https://github.com/ユーザー名/リポジトリ名/tree/main/devdojo-practice/',
+
+// ブログの編集リンク
+editUrl: 'https://github.com/ユーザー名/リポジトリ名/tree/main/devdojo-practice/',
+```
+
+### 任意変更項目
+
+#### 🎨 5. ナビゲーションバーのカスタマイズ
+ファイル：`devdojo-practice/docusaurus.config.ts`
+
+```typescript
+navbar: {
+  title: 'My Site',                    // ← サイト名
+  logo: {
+    alt: 'My Site Logo',               // ← ロゴの説明文
+    src: 'img/logo.svg',              // ← ロゴファイルのパス
+  },
+  // ...
+}
+```
+
+#### 📄 6. フッターのカスタマイズ
+ファイル：`devdojo-practice/docusaurus.config.ts`
+
+```typescript
+footer: {
+  // ...
+  copyright: `Copyright © ${new Date().getFullYear()} あなたのプロジェクト名. Built with Docusaurus.`,
+}
+```
+
+## 📦 GitHubPagesへのデプロイ
+
+### 1. GitHubリポジトリの設定
+1. GitHubリポジトリの **Settings** タブを開く
+2. 左サイドバーの **Pages** をクリック
+3. **Source** を **"GitHub Actions"** に変更
+
+### 2. 自動デプロイの仕組み
+- `main`ブランチにプッシュすると自動的にデプロイされます
+- `devdojo-practice`フォルダ内のファイルが変更された時のみ実行されます
+- デプロイ完了後、`https://ユーザー名.github.io/リポジトリ名/` でアクセス可能
+
+## 📚 ドキュメントの編集
+
+### ドキュメントページの追加
+- `devdojo-practice/docs/` フォルダ内にMarkdownファイルを作成
+- サイドバーは `devdojo-practice/sidebars.ts` で設定
+
+### ブログ記事の追加
+- `devdojo-practice/blog/` フォルダ内にMarkdownファイルを作成
+- ファイル名は `YYYY-MM-DD-記事名.md` の形式
+
+## 🔧 開発コマンド
+
+```bash
+# 開発サーバー起動
+npm start
+
+# プロダクションビルド
+npm run build
+
+# ビルド結果をローカルで確認
+npm run serve
+
+# 型チェック
+npm run typecheck
+```
+
+## 📁 プロジェクト構造
+
+```
+devdojo-practice/
+├── docs/                  # ドキュメントファイル
+├── blog/                  # ブログ記事
+├── src/                   # カスタムページとコンポーネント
+├── static/                # 静的ファイル（画像など）
+├── docusaurus.config.ts   # メイン設定ファイル
+├── sidebars.ts           # サイドバー設定
+└── package.json          # 依存関係設定
+```
+
+## 🆘 よくある問題
+
+### Q: サイトが正しく表示されない
+A: `docusaurus.config.ts` の `url` と `baseUrl` の設定を確認してください
+
+### Q: 編集リンクが正しく動作しない
+A: `editUrl` の設定がリポジトリのURLと一致しているか確認してください
+
+### Q: GitHubActionsでデプロイが失敗する
+A: GitHubリポジトリの Settings > Pages で Source が "GitHub Actions" になっているか確認してください
+
+## 📞 サポート
+
+問題が発生した場合は、GitHubのIssuesでお知らせください。
