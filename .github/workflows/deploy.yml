@@ -1,0 +1,71 @@
+# GitHubPagesへのDocusaurusサイト自動デプロイ用ワークフロー
+name: Deploy to GitHub Pages
+
+on:
+  # mainブランチへのプッシュ時に実行
+  push:
+    branches:
+      - main
+    # docs関連のファイルが変更された場合のみ実行（最適化）
+    paths:
+      - 'devdojo-practice/**'
+      - '.github/workflows/deploy.yml'
+
+  # 手動実行を可能にする
+  workflow_dispatch:
+
+# GitHubPagesへのデプロイ権限を設定
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時実行を制限（重複実行を防ぐ）
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリのコードをチェックアウト
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Node.jsのセットアップ（バージョン20を使用）
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: 'devdojo-practice/package-lock.json'
+
+      # 依存関係のインストール
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./devdojo-practice
+
+      # Docusaurusサイトをビルド
+      - name: Build website
+        run: npm run build
+        working-directory: ./devdojo-practice
+
+      # GitHubPagesの設定
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # ビルド結果をアップロード
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./devdojo-practice/build
+
+      # GitHubPagesにデプロイ
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

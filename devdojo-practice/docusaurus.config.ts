@@ -11,26 +11,21 @@ const config: Config = {
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true, 
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  url: 'https://ootomonaiso.github.io', 
+  baseUrl: '/DevDojo_matome/', // 例: '/DevDojo_matome/'
+  // GitHubPages用: GitHubユーザー名またはOrganization名
+  organizationName: '', // 例: 'ootomonaiso'
+  // GitHubPages用: リポジトリ名
+  projectName: 'DevDojo_matome',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // GitHubPages対応: トレイリングスラッシュの設定（推奨）
+  // trailingSlash: false,
   i18n: {
     defaultLocale: 'ja',
     locales: ['ja'],
@@ -42,10 +37,10 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          // GitHubPages用: 実際のリポジトリのeditURL
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            // 例: 'https://github.com/ootomonaiso/DevDojo_matome/tree/main/devdojo-practice/',
         },
         blog: {
           showReadingTime: true,
@@ -55,8 +50,10 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+          // GitHubPages用: 実際のリポジトリのeditURL
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            // 例: 'https://github.com/ootomonaiso/DevDojo_matome/tree/main/devdojo-practice/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -73,9 +70,11 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      // サイトタイトル（変更推奨）
+      title: 'My Site', // 例: 'DevDojo Practice'
       logo: {
-        alt: 'My Site Logo',
+        // ロゴのalt属性（変更推奨）
+        alt: 'My Site Logo', // 例: 'DevDojo Practice Logo'
         src: 'img/logo.svg',
       },
       items: [
@@ -87,7 +86,8 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          // GitHubリンク（実際のリポジトリURLに変更）
+          href: 'https://github.com/facebook/docusaurus', // 例: 'https://github.com/ootomonaiso/DevDojo_matome'
           label: 'GitHub',
           position: 'right',
         },
@@ -131,12 +131,14 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              // フッターのGitHubリンク（実際のリポジトリURLに変更）
+              href: 'https://github.com/facebook/docusaurus', // 例: 'https://github.com/ootomonaiso/DevDojo_matome'
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      // コピーライト表示（プロジェクト名を変更）
+      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`, // 例: DevDojo Practice
     },
     prism: {
       theme: prismThemes.github,
