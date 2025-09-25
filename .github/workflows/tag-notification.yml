@@ -1,0 +1,71 @@
+name: Tag Discord Notification
+
+# タグがプッシュされた時にDiscordに通知を送信する
+on:
+  push:
+    tags:
+      - '*'  # すべてのタグに対して実行
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Get tag information
+        id: tag_info
+        run: |
+          # タグ名を取得
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          echo "tag_name=$TAG_NAME" >> $GITHUB_OUTPUT
+          
+          # タグの作成者名を取得（名前のみ）
+          TAG_AUTHOR=$(git log -1 --format='%an')
+          echo "tag_author=$TAG_AUTHOR" >> $GITHUB_OUTPUT
+          
+      - name: Send Discord notification
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          # Discord Webhook用のペイロードを構築
+          PAYLOAD=$(cat << EOF
+          {
+            "content": "${{ steps.tag_info.outputs.tag_author }}が${{ steps.tag_info.outputs.tag_name }}の課題を終えました！",
+            "embeds": [
+              {
+                "title": "課題完了！",
+                "description": "課題が完了しました",
+                "color": 3066993,
+                "fields": [
+                  {
+                    "name": "完了した課題",
+                    "value": "\`${{ steps.tag_info.outputs.tag_name }}\`",
+                    "inline": true
+                  },
+                  {
+                    "name": "完了者",
+                    "value": "${{ steps.tag_info.outputs.tag_author }}",
+                    "inline": true
+                  },
+                  {
+                    "name": "リポジトリ",
+                    "value": "[${{ github.repository }}](https://github.com/${{ github.repository }})",
+                    "inline": false
+                  }
+                ],
+                "footer": {
+                  "text": "お疲れさまでした！"
+                },
+                "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%S.000Z)"
+              }
+            ]
+          }
+          EOF
+          )
+          
+          # DiscordのWebhookにPOSTリクエストを送信
+          curl -H "Content-Type: application/json" \
+               -d "$PAYLOAD" \
+               "$DISCORD_WEBHOOK_URL"

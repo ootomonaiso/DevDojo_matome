@@ -116,6 +116,22 @@ footer: {
 - `devdojo-practice`フォルダ内のファイルが変更された時のみ実行されます
 - デプロイ完了後、`https://ユーザー名.github.io/リポジトリ名/` でアクセス可能
 
+### 3. Discordへのタグ通知設定（オプション）
+新しいタグ（リリース）がプッシュされた時にDiscordに通知を送信できます。
+
+#### Discord Webhookの設定手順
+1. Discordサーバーの設定 > 連携サービス > ウェブフック
+2. 「新しいウェブフック」を作成
+3. ウェブフックURLをコピー
+
+#### GitHubシークレットの設定
+1. GitHubリポジトリの **Settings** > **Secrets and variables** > **Actions**
+2. **New repository secret** をクリック
+3. Name: `DISCORD_WEBHOOK_URL`
+4. Secret: DiscordのWebhookURLを貼り付け(Discordに送っときます)
+
+設定完了後、VSCodeでタグをつけると自動的にDiscordに通知されます。タグ名は課題名にしておいてね。
+
 ## ドキュメントの編集
 
 ### ドキュメントページの追加
