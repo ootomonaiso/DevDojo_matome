@@ -3,7 +3,7 @@
 このプロジェクトは、Docusaurusを使用したドキュメントサイトのテンプレートです。
 GitHubPagesでの公開に対応しており、簡単にカスタマイズできます。
 
-## 🚀 クイックスタート
+## クイックスタート
 
 ### 1. プロジェクトのセットアップ
 ```bash
@@ -15,11 +15,11 @@ npm start
 ### 2. 開発サーバー起動
 ローカルで確認： http://localhost:3000
 
-## ⚙️ カスタマイズ方法
+## カスタマイズ方法
 
 ### 必須変更項目
 
-#### 📝 1. サイト基本情報の変更
+#### 1. サイト基本情報の変更
 ファイル：`devdojo-practice/docusaurus.config.ts`
 
 ```typescript
@@ -30,7 +30,7 @@ const config: Config = {
 }
 ```
 
-#### 🌐 2. GitHubPages用URL設定
+#### 2. GitHubPages用URL設定
 ファイル：`devdojo-practice/docusaurus.config.ts`
 
 ```typescript
@@ -49,7 +49,7 @@ organizationName: 'yamada-taro',
 projectName: 'my-docs',
 ```
 
-#### 🔗 3. GitHubリンクの変更
+#### 3. GitHubリンクの変更
 ファイル：`devdojo-practice/docusaurus.config.ts`
 
 ```typescript
@@ -67,7 +67,7 @@ projectName: 'my-docs',
 },
 ```
 
-#### ✏️ 4. 編集リンクの変更
+#### 4. 編集リンクの変更
 ファイル：`devdojo-practice/docusaurus.config.ts`
 
 ```typescript
@@ -80,7 +80,7 @@ editUrl: 'https://github.com/ユーザー名/リポジトリ名/tree/main/devdoj
 
 ### 任意変更項目
 
-#### 🎨 5. ナビゲーションバーのカスタマイズ
+#### 5. ナビゲーションバーのカスタマイズ
 ファイル：`devdojo-practice/docusaurus.config.ts`
 
 ```typescript
@@ -94,7 +94,7 @@ navbar: {
 }
 ```
 
-#### 📄 6. フッターのカスタマイズ
+#### 6. フッターのカスタマイズ
 ファイル：`devdojo-practice/docusaurus.config.ts`
 
 ```typescript
@@ -104,7 +104,7 @@ footer: {
 }
 ```
 
-## 📦 GitHubPagesへのデプロイ
+## GitHubPagesへのデプロイ
 
 ### 1. GitHubリポジトリの設定
 1. GitHubリポジトリの **Settings** タブを開く
@@ -116,7 +116,7 @@ footer: {
 - `devdojo-practice`フォルダ内のファイルが変更された時のみ実行されます
 - デプロイ完了後、`https://ユーザー名.github.io/リポジトリ名/` でアクセス可能
 
-## 📚 ドキュメントの編集
+## ドキュメントの編集
 
 ### ドキュメントページの追加
 - `devdojo-practice/docs/` フォルダ内にMarkdownファイルを作成
@@ -142,7 +142,7 @@ npm run serve
 npm run typecheck
 ```
 
-## 📁 プロジェクト構造
+## プロジェクト構造
 
 ```
 devdojo-practice/
@@ -165,7 +165,3 @@ A: `editUrl` の設定がリポジトリのURLと一致しているか確認し�
 
 ### Q: GitHubActionsでデプロイが失敗する
 A: GitHubリポジトリの Settings > Pages で Source が "GitHub Actions" になっているか確認してください
-
-## 📞 サポート
-
-問題が発生した場合は、GitHubのIssuesでお知らせください。
