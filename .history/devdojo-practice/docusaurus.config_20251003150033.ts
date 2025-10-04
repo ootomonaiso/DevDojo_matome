@@ -70,10 +70,11 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      // サイトタイトル
-      title: 'HiroDocument',
+      // サイトタイトル（変更推奨）
+      title: 'My Site', // 例: 'DevDojo Practice'
       logo: {
-        alt: 'HiroDocument Logo',
+        // ロゴのalt属性（変更推奨）
+        alt: 'My Site Logo', // 例: 'DevDojo Practice Logo'
         src: 'img/logo.svg',
       },
       items: [
@@ -85,8 +86,8 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          // GitHubリンク
-          href: 'https://github.com/hirorogo/DevDojo_matome',
+          // GitHubリンク（実際のリポジトリURLに変更）
+          href: 'https://github.com/facebook/docusaurus', // 例: 'https://github.com/ootomonaiso/DevDojo_matome'
           label: 'GitHub',
           position: 'right',
         },

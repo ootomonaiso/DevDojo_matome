@@ -70,7 +70,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      // サイトタイトル
+      // サイトタイトル（変更推奨）
       title: 'HiroDocument',
       logo: {
         alt: 'HiroDocument Logo',

@@ -70,9 +70,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      // サイトタイトル
+      // サイトタイトル（変更推奨）
       title: 'HiroDocument',
       logo: {
+        // ロゴのalt属性（変更推奨）
         alt: 'HiroDocument Logo',
         src: 'img/logo.svg',
       },
@@ -85,7 +86,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          // GitHubリンク
+          // GitHubリンク（実際のリポジトリURLに変更）
           href: 'https://github.com/hirorogo/DevDojo_matome',
           label: 'GitHub',
           position: 'right',
