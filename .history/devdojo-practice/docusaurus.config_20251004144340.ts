@@ -41,6 +41,8 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
           // GitHubPages用: 実際のリポジトリのeditURL
           editUrl: 'https://github.com/hirorogo/DevDojo_matome/tree/main/devdojo-practice/', // 編集リンク
           // Useful options to enforce blogging best practices
