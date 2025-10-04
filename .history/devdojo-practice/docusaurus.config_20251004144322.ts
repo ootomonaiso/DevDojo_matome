@@ -2,6 +2,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
 const config: Config = {
   title: 'HiroDocument',
   tagline: '開発の練習と学習を記録するサイト',
@@ -33,6 +35,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          // GitHubPages用: 実際のリポジトリのeditURL
           editUrl: 'https://github.com/hirorogo/DevDojo_matome/tree/main/devdojo-practice/', // 編集リンク
         },
         blog: {
@@ -41,6 +44,8 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
           // GitHubPages用: 実際のリポジトリのeditURL
           editUrl: 'https://github.com/hirorogo/DevDojo_matome/tree/main/devdojo-practice/', // 編集リンク
           // Useful options to enforce blogging best practices

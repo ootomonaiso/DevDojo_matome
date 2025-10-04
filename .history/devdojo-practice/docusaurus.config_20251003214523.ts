@@ -2,6 +2,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
 const config: Config = {
   title: 'HiroDocument',
   tagline: '開発の練習と学習を記録するサイト',
@@ -12,10 +14,12 @@ const config: Config = {
     v4: true, 
   },
 
-  url: 'https://hirorogo.github.io', // GitHubPages用URL
-  baseUrl: '/DevDojo_matome/',       // リポジトリ名に基づくベースURL
-  organizationName: 'hirorogo',      // GitHubユーザー名
-  projectName: 'DevDojo_matome',     // GitHubリポジトリ名
+  url: 'https://hirorogo.github.io', 
+  baseUrl: '/DevDojo_matome/', // 例: '/DevDojo_matome/'
+  // GitHubPages用: GitHubユーザー名またはOrganization名
+  organizationName: 'hirorogo', // 例: 'ootomonaiso'
+  // GitHubPages用: リポジトリ名
+  projectName: 'DevDojo_matome',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -33,7 +37,10 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/hirorogo/DevDojo_matome/tree/main/devdojo-practice/', // 編集リンク
+          // GitHubPages用: 実際のリポジトリのeditURL
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            // 例: 'https://github.com/ootomonaiso/DevDojo_matome/tree/main/devdojo-practice/',
         },
         blog: {
           showReadingTime: true,
@@ -41,8 +48,12 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
           // GitHubPages用: 実際のリポジトリのeditURL
-          editUrl: 'https://github.com/hirorogo/DevDojo_matome/tree/main/devdojo-practice/', // 編集リンク
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            // 例: 'https://github.com/ootomonaiso/DevDojo_matome/tree/main/devdojo-practice/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -59,7 +70,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      // サイトタイトル
+      // サイトタイトル（変更推奨）
       title: 'HiroDocument',
       logo: {
         alt: 'HiroDocument Logo',
@@ -120,13 +131,13 @@ const config: Config = {
             {
               label: 'GitHub',
               // フッターのGitHubリンク（実際のリポジトリURLに変更）
-              href: 'https://github.com/hirorogo/DevDojo_matome', // フッターのGitHubリンク
+              href: 'https://github.com/facebook/docusaurus', // 例: 'https://github.com/ootomonaiso/DevDojo_matome'
             },
           ],
         },
       ],
       // コピーライト表示（プロジェクト名を変更）
-      copyright: `Copyright © ${new Date().getFullYear()} HiroDocument. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`, // 例: DevDojo Practice
     },
     prism: {
       theme: prismThemes.github,
