@@ -24,7 +24,7 @@ npm start
 
 ```typescript
 const config: Config = {
-  title: 'DevDojo Practice',           // ← あなたのサイト名に変更
+  title: 'DevDojo 10617',           // ← あなたのサイト名に変更
   tagline: '開発の練習と学習を記録するサイト', // ← サイトの説明に変更
   // ...
 }
@@ -35,10 +35,10 @@ const config: Config = {
 
 ```typescript
 // GitHubPages用設定
-url: 'https://ユーザー名.github.io',     // ← あなたのGitHubユーザー名
-baseUrl: '/リポジトリ名/',               // ← あなたのリポジトリ名
-organizationName: 'ユーザー名',          // ← あなたのGitHubユーザー名
-projectName: 'リポジトリ名',             // ← あなたのリポジトリ名
+url: 'https://nigityoth.github.io',     // ← あなたのGitHubユーザー名
+baseUrl: '/DevDojo_matome/',               // ← あなたのリポジトリ名
+organizationName: 'nigityoth',          // ← あなたのGitHubユーザー名
+projectName: 'DevDojo_matome',             // ← あなたのリポジトリ名
 ```
 
 **設定例：**
@@ -55,7 +55,7 @@ projectName: 'my-docs',
 ```typescript
 // ナビゲーションバーのGitHubリンク
 {
-  href: 'https://github.com/ユーザー名/リポジトリ名', // ← 実際のリポジトリURL
+  href: 'https://github.com/nigityoth/DevDojo_matome', // ← 実際のリポジトリURL
   label: 'GitHub',
   position: 'right',
 },
@@ -63,7 +63,7 @@ projectName: 'my-docs',
 // フッターのGitHubリンク
 {
   label: 'GitHub',
-  href: 'https://github.com/ユーザー名/リポジトリ名', // ← 実際のリポジトリURL
+  href: 'https://github.com/nigityoth/DevDojo_matome', // ← 実際のリポジトリURL
 },
 ```
 
@@ -72,10 +72,10 @@ projectName: 'my-docs',
 
 ```typescript
 // ドキュメントの編集リンク
-editUrl: 'https://github.com/ユーザー名/リポジトリ名/tree/main/devdojo-practice/',
+editUrl: 'https://github.com/nigityoth/DevDojo_matome/tree/main/devdojo-practice/',
 
 // ブログの編集リンク
-editUrl: 'https://github.com/ユーザー名/リポジトリ名/tree/main/devdojo-practice/',
+editUrl: 'https://github.com/nigityoth/DevDojo_matome/tree/main/devdojo-practice/',
 ```
 
 ### 任意変更項目
